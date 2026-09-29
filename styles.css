@@ -1,0 +1,97 @@
+:root {
+  --mist: #EAF1F1;
+  --ink: #15353A;
+  --muted: #4A6669;
+  --sun: #F2B84B;
+  --sun-deep: #C98A12;
+  --line: #C9D9DA;
+  --display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --body: "Newsreader", Georgia, serif;
+  --hero-image: url("Images/logo.webp");   /* <-- your image file */
+  --hero-focus: center 60%;            /* move the focal point: e.g. center 40% */
+
+  /* Bootstrap overrides */
+  --bs-body-font-family: var(--body);
+  --bs-body-color: var(--ink);
+  --bs-body-bg: var(--mist);
+  --bs-body-font-size: 1.25rem;
+  --bs-body-line-height: 1.65;
+  --bs-link-color-rgb: 21, 53, 58;
+}
+h1, h2, h3, .navbar, .btn, label, .price, cite { font-family: var(--display); }
+h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.08; }
+h1 { font-weight: 700; font-size: clamp(2.6rem, 7vw, 5rem); }
+h2 { font-weight: 700; font-size: clamp(1.9rem, 4vw, 2.75rem); }
+h3 { font-weight: 500; font-size: 1.4rem; letter-spacing: -0.01em; }
+p { max-width: 34em; }
+:focus-visible { outline: 3px solid var(--sun-deep) !important; outline-offset: 3px; }
+section { padding-block: clamp(3.5rem, 8vw, 6rem); }
+.muted { color: var(--muted); }
+.dark { background: var(--ink); color: var(--mist); }
+.dark .muted { color: #B7CDCE; }
+.dark a { color: var(--sun); }
+
+/* Buttons: Bootstrap's .btn with our accent */
+.btn-sun {
+  --bs-btn-color: var(--ink); --bs-btn-bg: var(--sun); --bs-btn-border-color: var(--sun);
+  --bs-btn-hover-color: var(--ink); --bs-btn-hover-bg: #F7C96E; --bs-btn-hover-border-color: #F7C96E;
+  --bs-btn-active-color: var(--ink); --bs-btn-active-bg: #F7C96E; --bs-btn-active-border-color: #F7C96E;
+  --bs-btn-border-radius: 999px; --bs-btn-padding-x: 1.6rem; --bs-btn-padding-y: .85rem;
+  --bs-btn-font-weight: 700; --bs-btn-font-size: 1.05rem;
+}
+
+/* ---------- Navbar over the hero ---------- */
+.navbar { position: sticky; top: 0; z-index: 10; padding-block: .9rem; background: var(--ink); border-bottom: 3px solid var(--sun); }
+.navbar-brand { font-weight: 700; color: #fff !important; display: flex; align-items: center; gap: .75rem; }
+.navbar-brand img { height: 44px; width: auto; }
+.navbar .nav-link { color: #fff; font-weight: 500; }
+.navbar .nav-link:hover { color: var(--sun); }
+.navbar-toggler { border-color: rgba(255,255,255,.6); }
+.navbar-toggler-icon { filter: invert(1); }
+@media (max-width: 991.98px) {
+  .navbar-collapse { padding-top: .75rem; }
+}
+
+/* ---------- Hero with mountain image ---------- */
+.hero {
+  position: relative; display: flex; align-items: center;
+  min-height: min(80vh, 720px); padding-block: 5rem; color: #fff;
+  background:
+    linear-gradient(90deg, rgba(21,53,58,.88) 0%, rgba(21,53,58,.55) 45%, rgba(21,53,58,.1) 100%),
+    var(--hero-image) var(--hero-focus) / cover no-repeat,
+    var(--ink);
+}
+.hero p { font-size: 1.4rem; text-shadow: 0 1px 12px rgba(0,0,0,.35); }
+.hero h1 { max-width: 11em; text-shadow: 0 2px 20px rgba(0,0,0,.35); }
+@media (max-width: 767.98px) {
+  .hero { background:
+    linear-gradient(180deg, rgba(21,53,58,.85) 0%, rgba(21,53,58,.6) 100%),
+    var(--hero-image) var(--hero-focus) / cover no-repeat, var(--ink); }
+}
+
+/* ---------- About ---------- */
+.portrait { aspect-ratio: 4 / 5; max-width: 340px; background: var(--line); border-radius: 200px 200px 12px 12px; overflow: hidden; }
+.portrait img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Services: ruled list ---------- */
+.offer { padding-block: 1.75rem; border-top: 1px solid var(--line); }
+.offer:last-child { border-bottom: 1px solid var(--line); }
+.offer p { margin: 0; }
+.price { font-weight: 500; }
+
+/* ---------- Process ---------- */
+.step-num { display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 50%; background: var(--sun); color: var(--ink); font-family: var(--display); font-weight: 700; margin-bottom: 1rem; }
+
+/* ---------- Quote ---------- */
+.quote blockquote { font-size: clamp(1.5rem, 3.4vw, 2.1rem); line-height: 1.4; max-width: 26em; margin-inline: auto; }
+.quote cite { font-style: normal; font-weight: 500; font-size: 1rem; }
+
+/* ---------- Form ---------- */
+.form-control { font-size: 1.1rem; padding: .8rem 1rem; border-radius: 10px; border: 2px solid transparent; background: var(--mist); color: var(--ink); }
+.form-control:focus { background: #fff; border-color: var(--sun); box-shadow: none; }
+label { font-weight: 500; font-size: 1rem; margin-bottom: .35rem; }
+
+footer { background: var(--ink); color: #B7CDCE; border-top: 1px solid #2B4D52; padding-block: 2rem; font-family: var(--display); font-size: .95rem; }
+footer a { color: #B7CDCE; }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } }
