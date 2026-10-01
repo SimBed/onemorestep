@@ -7,8 +7,7 @@
   --line: #C9D9DA;
   --display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
   --body: "Newsreader", Georgia, serif;
-  --hero-image: url("Images/logo.webp");   /* <-- your image file */
-  --hero-focus: center 60%;            /* move the focal point: e.g. center 40% */
+  --hero-image: url("Images/logo.webp");
 
   /* Bootstrap overrides */
   --bs-body-font-family: var(--body);
@@ -83,16 +82,20 @@ section { padding-block: clamp(3.5rem, 8vw, 6rem); }
 /* ---------- Process ---------- */
 .step-num { display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 50%; background: var(--sun); color: var(--ink); font-family: var(--display); font-weight: 700; margin-bottom: 1rem; }
 
-/* ---------- Quote ---------- */
-.quote blockquote { font-size: clamp(1.5rem, 3.4vw, 2.1rem); line-height: 1.4; max-width: 26em; margin-inline: auto; }
-.quote cite { font-style: normal; font-weight: 500; font-size: 1rem; }
-
-/* ---------- Form ---------- */
-.form-control { font-size: 1.1rem; padding: .8rem 1rem; border-radius: 10px; border: 2px solid transparent; background: var(--mist); color: var(--ink); }
-.form-control:focus { background: #fff; border-color: var(--sun); box-shadow: none; }
-label { font-weight: 500; font-size: 1rem; margin-bottom: .35rem; }
-
 footer { background: var(--ink); color: #B7CDCE; border-top: 1px solid #2B4D52; padding-block: 2rem; font-family: var(--display); font-size: .95rem; }
 footer a { color: #B7CDCE; }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } }
+
+/* ---------- Testimonials ---------- */
+.testimonial { padding: 2rem 0; border-top: 1px solid var(--line); }
+.testimonial:first-child { border-top: 0; padding-top: 0; }
+.testimonial blockquote { margin: 0; font-size: 1.2rem; line-height: 1.55; }
+.testimonial blockquote::before { content: "\201C"; display: block; font-family: var(--display); font-weight: 700; font-size: 4.5rem; line-height: .7; color: var(--sun); margin-bottom: .75rem; } */
+.testimonial cite { display: block; margin-top: 1.25rem; font-style: normal; font-weight: 500; font-size: 1rem; }
+.testimonial cite span { display: block; color: var(--muted); font-weight: 400; font-size: .9rem; }
+@media (min-width: 768px) {
+  .testimonial { padding: 0 2.25rem; border-top: 0; border-left: 1px solid var(--line); }
+  .testimonial:first-child { padding-left: 0; border-left: 0; }
+  .testimonial:last-child { padding-right: 0; }
+}
