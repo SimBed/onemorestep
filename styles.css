@@ -88,15 +88,27 @@ footer a { color: #B7CDCE; }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto !important; } }
 
-/* ---------- Testimonials ---------- */
+/* ---------- Testimonials (up to 6, wraps into rows) ---------- */
+/* Phones: stacked, with a line between each */
 .testimonial { padding: 2rem 0; border-top: 1px solid var(--line); }
 .testimonial:first-child { border-top: 0; padding-top: 0; }
 .testimonial blockquote { margin: 0; font-size: 1.2rem; line-height: 1.55; }
-.testimonial blockquote::before { content: "\201C"; display: block; font-family: var(--display); font-weight: 700; font-size: 4.5rem; line-height: .7; color: var(--sun); margin-bottom: .75rem; } */
+.testimonial blockquote::before { content: "\201C"; display: block; font-family: var(--display); font-weight: 700; font-size: 4.5rem; line-height: .7; color: var(--sun); margin-bottom: .75rem; }
 .testimonial cite { display: block; margin-top: 1.25rem; font-style: normal; font-weight: 500; font-size: 1rem; }
 .testimonial cite span { display: block; color: var(--muted); font-weight: 400; font-size: .9rem; }
-@media (min-width: 768px) {
-  .testimonial { padding: 0 2.25rem; border-top: 0; border-left: 1px solid var(--line); }
-  .testimonial:first-child { padding-left: 0; border-left: 0; }
-  .testimonial:last-child { padding-right: 0; }
+
+/* Tablets: 2 per row. Vertical line only between columns; horizontal line between rows */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .testimonial { padding: 2rem 2.25rem; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .testimonial:nth-child(odd) { padding-left: 0; border-left: 0; }   /* first in each row */
+  .testimonial:nth-child(even) { padding-right: 0; }                 /* last in each row */
+  .testimonial:nth-child(-n+2) { border-top: 0; padding-top: 0; }    /* top row */
 }
+/* Desktops: 3 per row */
+@media (min-width: 992px) {
+  .testimonial { padding: 2rem 2.25rem; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .testimonial:nth-child(3n+1) { padding-left: 0; border-left: 0; }
+  .testimonial:nth-child(3n) { padding-right: 0; }
+  .testimonial:nth-child(-n+3) { border-top: 0; padding-top: 0; }
+}
+
